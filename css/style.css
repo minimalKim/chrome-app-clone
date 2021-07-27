@@ -1,0 +1,13 @@
+.hidden {
+  display: none;
+}
+body {
+  color: #fff;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+#greeting {
+
+}
