@@ -4,8 +4,12 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = 0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
+
   <script defer src="./js/greetings.js"></script>
   <script defer src="./js/clock.js"></script>
   <script defer src="./js/quotes.js"></script>
@@ -16,14 +20,19 @@
 </head>
 
 <body>
+  <h2 id="clock">
+    <span>HH:MM</span>
+    <span>SS</span>
+  </h2>
+  
+
   <form id="login-form" class="hidden">
     <input required = "required" maxlength="15" type="text" placeholder="What is your name?"/>
     <input type="submit" value="Log In"/>
   </form>
 
-  <h2 id="clock">00:00:00</h2>
-
   <h1 id="greeting" class="hidden"></h1>
+
 
   <form id="todo-form">
     <input type="text" placeholder="Write a To Do and Press Enter"/>

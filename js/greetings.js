@@ -16,12 +16,17 @@ function loginSubmit(event) {
 }
 
 function paintGreetings(name) {
-  greeting.innerText = `Hello, ${name}`;
+  const nowHour = new Date().getHours();
+  let greetingSentence = '';
+  if (5 <= nowHour && nowHour < 10) greetingSentence = 'Good moring';
+  else if (10 <= nowHour && nowHour < 17) greetingSentence = 'Good afternoon';
+  else if (17 <= nowHour && nowHour < 21) greetingSentence = 'Good evening';
+  else if ( 21<= nowHour || nowHour < 5) greetingSentence = 'Good night';
+  else greetingSentence = 'Have a good day';
+
+  greeting.innerText = `${greetingSentence},\n${name}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
-
-
-
 
 if (!savedUserName) {
   // show the form

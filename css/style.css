@@ -1,13 +1,83 @@
-.hidden {
+.hidden{
   display: none;
 }
 body {
   color: #fff;
   display: flex;
+  flex-direction: column;
+  align-items:center;
   background-repeat: no-repeat;
   background-size: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+input {
+  /*height: auto;
+  line-height: normal;
+  padding: .8em .5em;*/
+  outline-style: none;  
+  -webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */ 
+  -moz-appearance: none; 
+  appearance: none;
+  background-color: transparent;
+  border-color:transparent;
+  text-underline-position: below;
+  border-style:hidden;
+  color:white;
+  font-size: 20px;
+}
+input::placeholder{
+  color:white;
+}
+#clock {
+  font-weight: 400;
+  width: 100%;
+  margin-top: 80px;
+  padding-left: 10%;
+  box-sizing: border-box;
+}
+#clock span:first-child {
+  font-size: 142px;
+}
+#clock span:last-child {
+  font-size: 80px;
+  color:rgba(255, 255, 255, 0.7)
+}
+
+
+#login-form, #greeting {
+  width: 100%;
+  margin-top: 50px;
+  padding-left: 10%;
+  box-sizing: border-box;
+}
+#login-form {
+
+}
+#login-form input:first-child{
+  width: 448px;
+  font-size: 50px;
+  border-bottom: 3px solid #fff;
+}
+#login-form input::placeholder{
+  color:rgba(255, 255, 255, 0.7)
 }
 
 #greeting {
-
+  font-size: 50px;
+  line-height: 118%;
+}
+#todo-form{
+  margin-top: 70px;
+}
+#quotes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  bottom: 10px;
+}
+#weather{
+  position: absolute;
+  right: 10px;
+  top:10px
 }
