@@ -2,24 +2,20 @@ const HIDDEN_CLASSNAME = "hidden";
 const USERNAME_KEY = "username";
 
 const loginForm = document.getElementById("login-form");
-const loginInput = document.querySelector("#login-form input:nth-child(2)");
-const logInButton = document.querySelector("#login-form input:last-child");
-const greeting = document.getElementById("greeting");
-const grettingMessage = document.getElementById("greeting-message");
-const greetingName = document.getElementById("greeting-name");
+const loginMessage = document.getElementById("login-message");
+const loginInput = document.getElementById("login-input");
+const loginName = document.getElementById("login-name");
+const logInButton = document.querySelector("#login-form button");
 const savedUserName= localStorage.getItem(USERNAME_KEY);
-const logoutBtn = document.getElementById("logout-btn");
 
 
 function loginSubmit(event) {
   const userName = loginInput.value;
-  console.log(userName);
   event.preventDefault();
   localStorage.setItem(USERNAME_KEY, userName);
-  loginForm.classList.add(HIDDEN_CLASSNAME);
-  //아래없으면 로그아웃 안눌림...
-  //window.location.reload();
+  loginInput.classList.add(HIDDEN_CLASSNAME);
   paintGreetings(userName);
+  console.log(userName);
 }
 
 function paintGreetings(name) {
@@ -31,30 +27,23 @@ function paintGreetings(name) {
   else if ( 21<= nowHour || nowHour < 5) message = 'Good night';
   else message = 'Have a good day';
 
-  grettingMessage.innerText = `${message},`;
-  greetingName.innerText = `${name}`;
-  greeting.classList.remove(HIDDEN_CLASSNAME);
+  loginMessage.children[0].innerText = `${message},`;
+  loginName.children[0].innerText = `${name}`;
+  loginName.classList.remove(HIDDEN_CLASSNAME); 
 }
 
 
-function logout() {  
-  greetingName.classList.add(HIDDEN_CLASSNAME);
-  logoutBtn.classList.add(HIDDEN_CLASSNAME);   
-  localStorage.removeItem(USERNAME_KEY);
-  window.location.reload();
-}
+loginForm.addEventListener("submit", loginSubmit);
 
-
-
-
+/*
 if (!savedUserName) {
   // show the form
   loginForm.classList.remove(HIDDEN_CLASSNAME);
   loginForm.addEventListener("submit", loginSubmit);
-  logoutBtn.addEventListener("click", logout)
 
 } else {
   //show the greetings
   paintGreetings(savedUserName);
-  logoutBtn.addEventListener("click", logout)
-}
+  //editNameBtn 클릭 시
+  editNameBtn.addEventListener("click", editName)
+}*/

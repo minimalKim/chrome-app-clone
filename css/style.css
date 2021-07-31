@@ -1,6 +1,4 @@
-.hidden{
-  display: none;
-}
+
 body {
   color: #fff;
   display: flex;
@@ -8,19 +6,27 @@ body {
   align-items:center;
   background-repeat: no-repeat;
   background-size: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family:  'Roboto','Noto Sans KR', sans-serif;
 }
-input {
+/*@font-face {
+  font-family: 'Noto Sans KR';
+  font-style: normal;
+  font-weight: 300, 400;
+  src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
+  unicode-range: U+AC00-D7A3;
+}*/
+
+input.text{
   /*height: auto;
   line-height: normal;
   padding: .8em .5em;*/
   outline-style: none;  
-  -webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */ 
+  -webkit-appearance: none; /* 브라우저별 기본 스타일링 제거 */
   -moz-appearance: none; 
   appearance: none;
   background-color: transparent;
   border-color:transparent;
-  text-underline-position: below;
+  border-bottom: 3px solid #fff;
   border-style:hidden;
   color:white;
   font-size: 20px;
@@ -28,11 +34,69 @@ input {
 input::placeholder{
   color:white;
 }
+.done {
+  text-decoration: line-through;
+}
+.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.appear {
+  animation: fade-in .5s;
+  animation-fill-mode: forwards;
+  display: flex;
+}
+
+.disappear {
+  animation: fade-out .5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+
+
+
+.btn {
+  width: 70px;
+  height: 34px;
+  line-height: 34px;
+  text-align: center;
+  margin-left: 16px;
+  font-size: 14px;
+  background-color: rgba(255, 255, 255, 0.3);
+  color: white;
+  border-radius: 12px;
+  box-sizing: border-box;
+  border-style:hidden;
+}
+.container{
+  display: flex;
+  align-items: center;
+}
 #clock {
   font-weight: 400;
   width: 100%;
   margin-top: 80px;
-  padding-left: 10%;
+  padding-left: 8%;
   box-sizing: border-box;
 }
 #clock span:first-child {
@@ -44,40 +108,144 @@ input::placeholder{
 }
 
 
+
 #login-form, #greeting {
   width: 100%;
   margin-top: 50px;
-  padding-left: 10%;
+  padding-left: 8%;
   box-sizing: border-box;
 }
-#login-form {
-
+#login-form h2 {
+  font-size: 50px;
+  line-height: 118%;
 }
-#login-form input:first-child{
-  width: 448px;
+#login-form input:nth-child(2){
+  width: 460px;
   font-size: 50px;
   border-bottom: 3px solid #fff;
 }
 #login-form input::placeholder{
   color:rgba(255, 255, 255, 0.7)
 }
-
 #greeting {
+  align-items: center;
   font-size: 50px;
   line-height: 118%;
 }
-#todo-form{
-  margin-top: 70px;
+
+#greeting .container{
+display: flex;
+align-items: center;
 }
+
+
+#logout-btn{
+  /*position:absolute;
+  top: 340px;
+  */
+  margin-top: 4px;
+}
+
+
+
+
+
+#focus {
+  position: absolute;
+  top: 480px;
+}
+#focus-form input{
+  width: 530px;
+  font-size: 34px;
+  border-bottom: 3px solid #fff;
+  padding-bottom: 8px;
+  text-align:center;
+}
+#focus-message {
+  font-size: 36px;
+  margin-left: 20px;
+  margin-right: 60px;
+}
+input#focue-cb {
+  font-size: 1em;
+  width: 1.25em; /* 너비 설정 */
+  height: 1.25em; /* 높이 설정 */
+  vertical-align: middle;
+  border-width:0px
+}
+input#focue-cb + label { /* 라벨 텍스트 크기와 수직 정렬 맞춤 */
+  font-size: 1.125em;
+  vertical-align: middle;
+  border-width:0px
+
+}
+
+
+
+#todo{
+  width: 300px;
+  margin-top: 70px;
+  position: absolute;
+  right: 40px;
+  bottom: 30px;
+  box-sizing: border-box;
+}
+#todo-page{
+  position: relative;
+  flex-direction: column;
+  background-color:rgba(255, 255, 255, 0.5);
+  color: rgb(53, 53, 53, 0.8);
+  padding: 20px;
+  border-radius: 4px;
+}
+#todo-page:after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 86%;
+	width: 0;
+	height: 0;
+	border: 12px solid transparent;
+	border-top-color: rgba(255, 255, 255, 0.5);
+	border-bottom: 0;
+	margin-left: -15px;
+	margin-bottom: -12px;
+}
+#todo h3{
+  font-size: 20px;
+  margin: 10px 0 10px 0;
+}
+#todo input{
+  color: rgb(53, 53, 53);
+  font-size: 16px;
+  width: 160px;
+  /*border-bottom: 1px solid rgb(107, 107, 107, 0.5);*/
+  margin-top:18px;
+}
+#todo input::placeholder{
+  color: rgb(107, 107, 107, 0.5);
+}
+#todo-btn{
+  margin-top: 20px;
+  font-size: 20px;
+  padding-right: 20px;
+  text-align: right;
+}
+
+
+
+
+
 #quotes{
   display: flex;
   flex-direction: column;
   align-items: center;
   position: absolute;
-  bottom: 10px;
+  bottom: 30px;
 }
 #weather{
   position: absolute;
   right: 10px;
   top:10px
 }
+

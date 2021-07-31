@@ -6,15 +6,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable = 0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;1,100&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
 
+  
   <script defer src="./js/greetings.js"></script>
   <script defer src="./js/clock.js"></script>
   <script defer src="./js/quotes.js"></script>
   <script defer src="./js/background.js"></script>
   <script defer src="./js/todo.js"></script>
+  <script defer src="./js/focus.js"></script>
   <script defer src="./js/weather.js"></script>
   <title>Momentum App</title>
 </head>
@@ -24,21 +29,58 @@
     <span>HH:MM</span>
     <span>SS</span>
   </h2>
-  
 
   <form id="login-form" class="hidden">
-    <input required = "required" maxlength="15" type="text" placeholder="What is your name?"/>
-    <input type="submit" value="Log In"/>
+    <h2>What is your name?</h2>
+    <input class="text" type="text" required = "required" maxlength="15" />
+    <input class="btn" type="submit" value="Log In">
   </form>
 
-  <h1 id="greeting" class="hidden"></h1>
+  <div id="greeting" class="hidden">
+    <div id="greeting-message"></div>
+    <div class ="container">
+      <div id="greeting-name"></div>
+      <div class="btn" id="logout-btn">Log Out</div>
+    </div>
 
-
-  <form id="todo-form">
-    <input type="text" placeholder="Write a To Do and Press Enter"/>
+    <div id="editing-form" class="hidden">
+      <input type="text" required = "required" maxlength="15" />
+      <input type="submit">
+    </div>
+  </div>
+  
+<div id="focus">
+  <form id="focus-form" class="hidden">
+    <input class="text" type="text" required = "required" maxlength="15" placeholder="What is your main focus for today?">
   </form>
-  <ul id="todo-list">
-  </ul>
+  <div class="container">
+    <form id="focue-cb-form">
+      <input type="checkbox" id="focue-cb">
+      <label for="focue-cb"></label>
+    </form>
+    <h3 id="focus-message"></h3>
+  </div>
+  
+  <!--<div id="focus-edit-btn">
+    <span class="material-icons">
+      edit
+    </span>
+  </div>-->
+</div>
+
+<div id="todo">
+  <div id="todo-page" class="hidden">
+    <h3>
+      Today
+    </h3>
+    <ul id="todo-list">
+    </ul>
+    <form id="todo-form" >
+      <input class="text" type="text" maxlength="10" placeholder="New Todo"/>
+    </form>
+  </div>
+  <div id="todo-btn">ToDo</div> 
+</div>
 
   <div id="quotes">
     <span>quotes</span>
